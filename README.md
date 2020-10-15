@@ -1,61 +1,69 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+### Sobre a Accordous
+##### Não perca mais tempo com seus contratos.
+Somos uma empresa de tecnologia voltada a simplificação de processos burocráticos! Desde a concepção até a cobrança de contratos, seja ele de imóveis, acordo, prestação de serviços, entre outros.
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
 
-## About Laravel
+##### Teste Full Stack Laravel
+O objetivo deste teste é entendermos um pouco mais sobre seus conhecimentos de Frontend e Backend no Laravel.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+##### Requisitos
+- PHP 7.1+
+- Laravel (Preferência 5.8+)
+- Vue.JS
+- Docker Engine
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+##### Orientações
+Faça um fork deste projeto.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Para facilitar o seu desenvolvimento, nós disponibilizamos um ``docker-compose.yml`` com o serviços que utilizamos habitualmente no nosso dia a dia.
 
-## Learning Laravel
+#### O Desafio
+Simular o cadastro de uma propriedade e criar um contrato para o mesmo.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+##### Funcionalidade 1:
+  - Permitir o cadastro de um imóvel com algumas características. 
+  - o cadastro de um imóvel deve possuir:
+  - e-mail do proprietário, rua, número, complemento, bairro, cidade, estado;
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Para que o cadastro ocorra deverá haver validações em dois níveis. Frontend e backend:
+- 1 - e-mail, rua, bairro, cidade e estado são campos obrigatórios;
+- 2 - e-mail deverá ser validado;
 
-## Laravel Sponsors
+##### Funcionalidade 2:
+  - Contexto: Permitir visualização dos imóveis cadastrados.
+    Os dados de imóveis deverão ser carregados via request assíncrona. Esses dados deverão ser exibidos numa tabela e ao menos uma das colunas serem ordenáveis.
+    Dados que deverão ser exibidos na tabela:
+  - E-mail do proprietário;
+  - Rua, número, cidade, estado (separados por vírgula);
+  - Status (Contratado / Não contratado)
+  - Coluna para ações (remover).
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+##### Funcionalidade 3:
+  - Contexto: permitir a remoção de uma propriedade via chamada assíncrona com atualização posterior da lista de propriedades.
+  - Observação: a remoção de uma propriedade deverá ser virtual.
 
-### Premium Partners
+##### Funcionalidade 4:
+  - Contexto: Criação de um contrato que permita associação com uma propriedade. Um contrato possui os seguintes campos:
+  - Propriedade (deverá ser selecionável a propriedade. Sendo usado como informação da propriedade a rua, número, complemento, bairro);
+  - Tipo de pessoa (Pessoa física ou Pessoa Jurídica);
+  - Documento (A máscara do campo de documento deverá alterar de acordo com o tipo de pessoa. Pessoa física deverá ser máscara de CPF e pessoa jurídica deverá ser máscara de CNPJ)
+  - E-mail do contratante;
+  - Nome completo do contratante;
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
+##### Regras específicas sobre a criação de contrato:
+- Uma propriedade não pode estar associada a dois contratos;
+- Todos os campos do contrato são obrigatórios;
+- Deverá ocorrer validação do documento;
+- Deverá ocorrer validação do e-mail;
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Extras
+- Job: deve-se utilizar alguma forma de job;
+- Teste unitário de backend;
+- Teste de integração backend;
+- SPA.
+- Usabilidade (A usabilidade das funcionalidades fica a cargo do desenvolvedor) :D
 
-## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Entrega
+Deixar um repositório público e nos enviar por e-mail - o mesmo e-mail que foi enviado o teste.
