@@ -22,3 +22,5 @@ Route::group(['middleware' => 'api','prefix' => 'auth'], function () {
     Route::post('/refresh', [AuthController::class, 'refresh']);
     Route::get('/', [AuthController::class, 'me']);
 });
+
+Route::resource('immobile', ImmobileController::class)->middleware('jwt.auth');
