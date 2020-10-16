@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 class AuthController extends Controller
 {
     /**
@@ -45,13 +43,12 @@ class AuthController extends Controller
     /**
      * Log the user out (Invalidate the token).
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\JsonResponse|\Illuminate\Http\Response
      */
     public function logout()
     {
         auth()->logout();
-
-        return response()->json(['message' => 'Successfully logged out']);
+        return response(null, 204);
     }
 
     /**

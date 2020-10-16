@@ -4,7 +4,6 @@ namespace Tests\Feature;
 
 use Database\Factories\UserFactory;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class AuthControllerTest extends TestCase
@@ -66,7 +65,7 @@ class AuthControllerTest extends TestCase
         $jwt = $jwt_response->json("access_token");
         $token_type = $jwt_response->json("token_type");
 
-        $response = $this->post('/api/auth/me', [], [
+        $response = $this->get('/api/auth', [
             "Authorization" => "$token_type $jwt"
         ]);
 
@@ -80,7 +79,7 @@ class AuthControllerTest extends TestCase
      */
     public function testMeWithInvalidJwt()
     {
-        $response = $this->post('/api/auth/me', [], [
+        $response = $this->get('/api/auth', [
             "Authorization" => "Bearer invalid_token"
         ]);
 
@@ -124,6 +123,35 @@ class AuthControllerTest extends TestCase
     {
         $response = $this->post('/api/auth/refresh', [], [
             "Authorization" => "Bearer invalid_token"
+        ]);
+
+        $response->assertStatus(401);
+    }
+    /**
+     * Must return 200 and token not be valid anymore
+     *
+     * @return void
+     */
+    public function testLogout()
+    {
+        $user = UserFactory::new(["password" => bcrypt("password")])->create();
+
+        $jwt_response = $this->post('/api/auth', [
+            "email" => $user->email,
+            "password" => "password"
+        ]);
+
+        $jwt = $jwt_response->json("access_token");
+        $token_type = $jwt_response->json("token_type");
+        $authorization = "$token_type $jwt";
+        $response = $this->post('/api/auth/logout', [], [
+            "Authorization" => $authorization
+        ]);
+
+        $response->assertStatus(204);
+
+        $response = $this->get('/api/auth',[
+            "Authorization" => $authorization
         ]);
 
         $response->assertStatus(401);
