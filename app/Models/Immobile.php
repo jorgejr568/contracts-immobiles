@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Immobile extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, UuidModel;
 
     protected $fillable = [
         'uuid',
@@ -20,4 +20,9 @@ class Immobile extends Model
         'number',
         'complement',
     ];
+
+    public function getRouteKeyName()
+    {
+        return 'uuid';
+    }
 }
