@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ImmobileController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,7 +19,7 @@ Route::group(['middleware' => 'api','prefix' => 'auth'], function () {
     Route::post('/', [AuthController::class, 'login']);
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::post('/refresh', [AuthController::class, 'refresh']);
-    Route::get('/', [AuthController::class, 'me']);
+    Route::post('/me', [AuthController::class, 'me']);
 });
 
 Route::resource('immobile', ImmobileController::class)->middleware('jwt.auth');
