@@ -20,7 +20,7 @@ class CreateImmobilesTable extends Migration
             $table->string('state');
             $table->string('city');
             $table->string('neighborhood');
-            $table->string('street');
+            $table->string('street', 30);
             $table->string('number')->nullable();
             $table->string('complement')->nullable();
             $table->timestamps();
