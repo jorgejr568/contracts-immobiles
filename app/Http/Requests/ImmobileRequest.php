@@ -31,8 +31,8 @@ class ImmobileRequest extends FormRequest
             'city' => ['required', 'string', 'max:255'],
             'neighborhood' => ['required', 'string', 'max:255'],
             'street' => ['required', 'string', 'max:255'],
-            'number' => ['required', 'string', 'max:30'],
-            'complement' => ['required', 'string', 'max:255'],
+            'number' => ['nullable', 'string', 'max:30'],
+            'complement' => ['nullable', 'string', 'max:255'],
         ];
 
         if ($isUpdate) {

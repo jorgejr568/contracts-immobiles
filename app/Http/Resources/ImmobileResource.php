@@ -15,6 +15,17 @@ class ImmobileResource extends JsonResource
      */
     public function toArray($request)
     {
-        return Arr::except(parent::toArray($request), 'deleted_at');
+        $array = parent::toArray($request);
+        $array = Arr::except($array, 'deleted_at');
+        $array += ['status' => $this->statusArray('CONTRATADO')];
+
+        return $array;
+    }
+
+    public function statusArray($status){
+        return [
+            'text' => $status,
+            'color' => 'success'
+        ];
     }
 }

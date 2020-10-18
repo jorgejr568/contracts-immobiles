@@ -3,20 +3,32 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ImmobileRequest;
+use App\Http\Requests\PaginationRequest;
 use App\Http\Resources\ImmobileResource;
 use App\Models\Immobile;
+use Illuminate\Support\Facades\Log;
 
 class ImmobileController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
+     * @param PaginationRequest $request
      * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
-    public function index()
+    public function index(PaginationRequest $request)
     {
+        $sort = $request->input('sort', []);
         return ImmobileResource::collection(
-            Immobile::paginate(config('pagination.per_page'))
+            Immobile
+                ::when(count($sort) > 0, function ($query) use($sort){
+                    foreach ($sort as $rule){
+                        $rule = json_decode($rule, true);
+                        Log::info(`ööðáßð`, $rule);
+                        $query->orderBy($rule['column'], $rule['desc'] ? 'DESC' : 'ASC');
+                    }
+                })
+                ->paginate($request->input('per_page', config('pagination.per_page')))
         );
     }
 

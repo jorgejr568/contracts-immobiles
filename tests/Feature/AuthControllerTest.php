@@ -69,7 +69,7 @@ class AuthControllerTest extends TestCase
             "Authorization" => "$token_type $jwt"
         ]);
 
-        $response->assertJson($user->toArray());
+        $response->assertJson(["data" => $user->toArray()]);
     }
 
     /**
