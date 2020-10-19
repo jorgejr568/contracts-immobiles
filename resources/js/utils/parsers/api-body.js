@@ -1,1 +1,1 @@
-export const ApiBodyParser = ({data}) => data
+export const ApiBodyParser = ({ data }) => data

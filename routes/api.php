@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ContractController;
 use App\Http\Controllers\ImmobileController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,11 +16,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['middleware' => 'api','prefix' => 'auth'], function () {
+Route::group(['middleware' => 'api', 'prefix' => 'auth'], function () {
     Route::post('/', [AuthController::class, 'login']);
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::post('/refresh', [AuthController::class, 'refresh']);
     Route::get('/', [AuthController::class, 'me']);
 });
 
-Route::resource('immobile', ImmobileController::class)->middleware('jwt.auth');
+Route::apiResource('immobile', ImmobileController::class)
+    ->only('index', 'store', 'destroy')
+    ->middleware('jwt.auth');
+
+Route::apiResource('immobile.contract', ContractController::class)
+    ->only('store')
+    ->middleware('jwt.auth');

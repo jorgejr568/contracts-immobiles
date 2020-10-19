@@ -2804,6 +2804,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -23033,6 +23039,21 @@ var render = function() {
               ),
               _vm._v(" "),
               _c("v-list-item-title", [_vm._v("Properties")])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-list-item",
+            { attrs: { link: "", to: { name: "contracts.new" } } },
+            [
+              _c(
+                "v-list-item-icon",
+                [_c("v-icon", [_vm._v("mdi-file-document")])],
+                1
+              ),
+              _vm._v(" "),
+              _c("v-list-item-title", [_vm._v("Add contract")])
             ],
             1
           )
@@ -85007,6 +85028,16 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]({
         return isLoggedIn();
       },
       title: 'Register immobile'
+    }
+  }, {
+    path: '/contracts/new',
+    name: 'contracts.new',
+    component: _components_pages_immobile_New__WEBPACK_IMPORTED_MODULE_6__["default"],
+    meta: {
+      valid: function valid() {
+        return isLoggedIn();
+      },
+      title: 'Register contract'
     }
   }]
 });

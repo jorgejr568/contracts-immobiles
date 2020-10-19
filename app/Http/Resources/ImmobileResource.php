@@ -17,15 +17,23 @@ class ImmobileResource extends JsonResource
     {
         $array = parent::toArray($request);
         $array = Arr::except($array, 'deleted_at');
-        $array += ['status' => $this->statusArray('CONTRATADO')];
+        $array += ['status' => $this->statusContract($array['contract'])];
 
         return $array;
     }
 
-    public function statusArray($status){
+    public function statusContract($contract)
+    {
+        if ($contract) {
+            return [
+                'text' => 'CONTRACTED',
+                'color' => 'primary',
+            ];
+        }
+
         return [
-            'text' => $status,
-            'color' => 'success'
+            'text' => 'NON-CONTRACTED',
+            'color' => 'default',
         ];
     }
 }

@@ -22,14 +22,14 @@ class ImmobileFactory extends Factory
     public function definition()
     {
         return [
-            "uuid" => $this->faker->uuid,
-            "email" => $this->faker->companyEmail,
-            "state" => $this->faker->state,
-            "city" => $this->faker->city,
-            "neighborhood" => "Springfield",
-            "street" => $this->faker->streetName,
-            "number" => $this->faker->numberBetween(1, 100),
-            "complement" => $this->faker->text(30)
+            'uuid' => $this->faker->uuid,
+            'email' => $this->faker->companyEmail,
+            'state' => $this->faker->state,
+            'city' => $this->faker->city,
+            'neighborhood' => 'Springfield',
+            'street' => $this->faker->streetName,
+            'number' => $this->faker->numberBetween(1, 100),
+            'complement' => $this->faker->text(30),
         ];
     }
 }

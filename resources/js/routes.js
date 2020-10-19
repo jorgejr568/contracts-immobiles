@@ -49,6 +49,15 @@ const router = new VueRouter({
                 title: 'Register immobile',
             },
         },
+        {
+            path: '/contracts/new',
+            name: 'contracts.new',
+            component: PagesImmobileNew,
+            meta: {
+                valid: () => isLoggedIn(),
+                title: 'Register contract',
+            },
+        },
     ],
 })
 

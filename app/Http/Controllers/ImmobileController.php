@@ -20,15 +20,18 @@ class ImmobileController extends Controller
     {
         $sort = $request->input('sort', []);
         return ImmobileResource::collection(
-            Immobile
-                ::when(count($sort) > 0, function ($query) use($sort){
-                    foreach ($sort as $rule){
-                        $rule = json_decode($rule, true);
-                        Log::info(`ööðáßð`, $rule);
-                        $query->orderBy($rule['column'], $rule['desc'] ? 'DESC' : 'ASC');
-                    }
-                })
-                ->paginate($request->input('per_page', config('pagination.per_page')))
+            Immobile::when(count($sort) > 0, function ($query) use ($sort) {
+                foreach ($sort as $rule) {
+                    $rule = json_decode($rule, true);
+                    Log::info(`ööðáßð`, $rule);
+                    $query->orderBy(
+                        $rule['column'],
+                        $rule['desc'] ? 'DESC' : 'ASC',
+                    );
+                }
+            })->paginate(
+                $request->input('per_page', config('pagination.per_page')),
+            ),
         );
     }
 
@@ -41,30 +44,6 @@ class ImmobileController extends Controller
     public function store(ImmobileRequest $request)
     {
         return new ImmobileResource(Immobile::create($request->all()));
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Immobile  $immobile
-     * @return ImmobileResource
-     */
-    public function show(Immobile $immobile)
-    {
-        return new ImmobileResource($immobile);
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param ImmobileRequest $request
-     * @param \App\Models\Immobile $immobile
-     * @return ImmobileResource
-     */
-    public function update(ImmobileRequest $request, Immobile $immobile)
-    {
-        $immobile->update($request->all());
-        return new ImmobileResource($immobile);
     }
 
     /**

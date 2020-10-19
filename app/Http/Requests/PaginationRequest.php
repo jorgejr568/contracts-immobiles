@@ -24,10 +24,27 @@ class PaginationRequest extends FormRequest
     public function rules()
     {
         return [
+            'search' => 'string',
             'per_page' => 'numeric|min:1|max:200',
             'sort' => 'array',
             'sort.*.column' => 'string',
-            'sort.*.desc' => 'boolean'
+            'sort.*.desc' => 'boolean',
         ];
+    }
+
+    public function search()
+    {
+        $search = $this->input('search');
+        if (!$search) {
+            return null;
+        }
+
+        $escapePercent = str_replace('%', '\%', $search);
+
+        $words = explode(' ', $escapePercent);
+
+        return array_map(function ($word) {
+            return '%' . $word . '%';
+        }, $words);
     }
 }

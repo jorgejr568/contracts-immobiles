@@ -10,6 +10,8 @@ class Immobile extends Model
 {
     use HasFactory, SoftDeletes, UuidModel;
 
+    protected $with = ['contract'];
+
     protected $fillable = [
         'uuid',
         'email',
@@ -24,5 +26,14 @@ class Immobile extends Model
     public function getRouteKeyName()
     {
         return 'uuid';
+    }
+
+    /**
+     * Relationships
+     */
+
+    public function contract()
+    {
+        return $this->hasOne(Contract::class);
     }
 }

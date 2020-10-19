@@ -43,6 +43,12 @@
                 </v-list-item-icon>
                 <v-list-item-title>Properties</v-list-item-title>
             </v-list-item>
+            <v-list-item link :to="{ name: 'contracts.new' }">
+                <v-list-item-icon>
+                    <v-icon>mdi-file-document</v-icon>
+                </v-list-item-icon>
+                <v-list-item-title>Add contract</v-list-item-title>
+            </v-list-item>
         </v-list>
 
         <template v-slot:append>

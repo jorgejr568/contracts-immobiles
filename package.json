@@ -2,7 +2,7 @@
     "main": "resources/js/app.js",
     "private": true,
     "scripts": {
-        "prettier": "prettier app --write",
+        "prettier": "prettier app config database resources routes tests --write",
         "dev": "npm run development",
         "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
         "watch": "npm run development -- --watch",
@@ -35,6 +35,7 @@
     "dependencies": {
         "vue": "^2.6.12",
         "vue-router": "^3.4.7",
+        "vue-the-mask": "^0.11.1",
         "vuetify": "^2.3.14",
         "vuex": "^3.5.1"
     }

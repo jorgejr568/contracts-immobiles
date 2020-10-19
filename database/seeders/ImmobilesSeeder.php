@@ -14,6 +14,6 @@ class ImmobilesSeeder extends Seeder
      */
     public function run()
     {
-        ImmobileFactory::times(100)->create();
+        ImmobileFactory::times(50)->create();
     }
 }
