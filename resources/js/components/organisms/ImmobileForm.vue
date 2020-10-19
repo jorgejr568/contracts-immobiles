@@ -119,7 +119,7 @@
                                 :loading="loading"
                                 :disabled="!valid"
                             >
-                                CREATE
+                                REGISTER
                             </v-btn>
                         </div>
                     </v-form>

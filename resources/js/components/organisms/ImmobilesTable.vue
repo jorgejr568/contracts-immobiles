@@ -32,14 +32,12 @@
 <script>
     import { mapGetters } from 'vuex'
     import OrganismsImmobileDeleteButton from './ImmobileDeleteButton'
+    import ContractAddressLineFilter from '../../utils/filters/contract-address-line'
     export default {
         name: 'OrganismsImmobilesTable',
         components: { OrganismsImmobileDeleteButton },
         filters: {
-            address_line: (property) =>
-                `${property.street}, ${
-                    property.number ? `${property.number},` : ''
-                } ${property.city}, ${property.state}`,
+            address_line: (property) => ContractAddressLineFilter(property),
         },
         data() {
             return {

@@ -18,20 +18,35 @@ class ImmobileController extends Controller
      */
     public function index(PaginationRequest $request)
     {
+        $search_fields = [
+            'state',
+            'city',
+            'street',
+            'number'
+        ];
         $sort = $request->input('sort', []);
         return ImmobileResource::collection(
-            Immobile::when(count($sort) > 0, function ($query) use ($sort) {
-                foreach ($sort as $rule) {
-                    $rule = json_decode($rule, true);
-                    Log::info(`ööðáßð`, $rule);
-                    $query->orderBy(
-                        $rule['column'],
-                        $rule['desc'] ? 'DESC' : 'ASC',
-                    );
-                }
-            })->paginate(
-                $request->input('per_page', config('pagination.per_page')),
-            ),
+            Immobile
+                ::when(count($sort) > 0, function ($query) use ($sort) {
+                    foreach ($sort as $rule) {
+                        $rule = json_decode($rule, true);
+                        $query->orderBy(
+                            $rule['column'],
+                            $rule['desc'] ? 'DESC' : 'ASC',
+                        );
+                    }
+                })
+                ->when($request->search(), function($query) use($request, $search_fields){
+                    $words = $request->search();
+                    foreach ($search_fields as $field){
+                        foreach ($words as $word){
+                            $query->orWhere($field, 'like', $word);
+                        }
+                    }
+                })
+                ->paginate(
+                    $request->input('per_page', config('pagination.per_page')),
+                ),
         );
     }
 

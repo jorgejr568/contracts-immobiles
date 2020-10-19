@@ -4,6 +4,7 @@ import PagesAuthLogin from './components/pages/auth/Login'
 import PagesDashboardHome from './components/pages/dashboard/Home'
 import PagesImmobileIndex from './components/pages/immobile/Index'
 import PagesImmobileNew from './components/pages/immobile/New'
+import PagesContractNew from './components/pages/contract/New'
 
 import store from './store'
 
@@ -52,7 +53,7 @@ const router = new VueRouter({
         {
             path: '/contracts/new',
             name: 'contracts.new',
-            component: PagesImmobileNew,
+            component: PagesContractNew,
             meta: {
                 valid: () => isLoggedIn(),
                 title: 'Register contract',

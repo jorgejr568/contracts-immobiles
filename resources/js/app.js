@@ -3,6 +3,7 @@ import router from './routes'
 import vuetify from './plugins/vuetify'
 import store from './store'
 import App from './App'
+import './plugins/vue-the-mask'
 
 require('./bootstrap')
 
