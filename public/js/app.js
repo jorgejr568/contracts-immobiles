@@ -2231,8 +2231,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
 
 
 
@@ -2357,7 +2355,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _context2.next = 6;
                 return Object(_utils_consumer_api__WEBPACK_IMPORTED_MODULE_4__["ApiClient"])().get('/immobile', {
                   params: {
-                    search: _this2.searchImmobile
+                    search: _this2.searchImmobile,
+                    status: 'non-contracted'
                   }
                 }).then(function (response) {
                   _this2.immobiles = Object(_utils_parsers_api_resource__WEBPACK_IMPORTED_MODULE_5__["ApiResourceParser"])(response);
@@ -22987,8 +22986,6 @@ var render = function() {
                           "search-input": _vm.searchImmobile,
                           "no-filter": "",
                           "hide-no-data": "",
-                          "item-text": "uuid",
-                          "item-value": "id",
                           label: "Search for immobile",
                           "prepend-inner-icon": "mdi-office-building",
                           "return-object": "",
@@ -86351,6 +86348,9 @@ var mutations = {
     state.token = token;
   },
   setUser: function setUser(state, user) {
+    if (!user.id) this.$router.push({
+      name: 'auth.login'
+    });
     state.user = user;
   }
 };

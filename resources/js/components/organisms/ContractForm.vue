@@ -11,8 +11,6 @@
                             :search-input.sync="searchImmobile"
                             no-filter
                             hide-no-data
-                            item-text="uuid"
-                            item-value="id"
                             label="Search for immobile"
                             prepend-inner-icon="mdi-office-building"
                             return-object
@@ -220,6 +218,7 @@
                     .get('/immobile', {
                         params: {
                             search: this.searchImmobile,
+                            status: 'non-contracted',
                         },
                     })
                     .then((response) => {

@@ -29,6 +29,8 @@ const mutations = {
         state.token = token
     },
     setUser(state, user) {
+        if (!user.id) this.$router.push({ name: 'auth.login' })
+
         state.user = user
     },
 }

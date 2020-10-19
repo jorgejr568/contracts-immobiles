@@ -25,6 +25,8 @@ class ImmobileController extends Controller
             'number'
         ];
         $sort = $request->input('sort', []);
+        $status = $request->input('status');
+
         return ImmobileResource::collection(
             Immobile
                 ::when(count($sort) > 0, function ($query) use ($sort) {
@@ -36,13 +38,29 @@ class ImmobileController extends Controller
                         );
                     }
                 })
-                ->when($request->search(), function($query) use($request, $search_fields){
-                    $words = $request->search();
-                    foreach ($search_fields as $field){
-                        foreach ($words as $word){
-                            $query->orWhere($field, 'like', $word);
-                        }
+                ->when($status, function($query) use($status){
+                    if(in_array($status, ['contracted', 'non-contracted'])){
+                        $exists = $status === 'contracted' ? 'whereExists' : 'whereNotExists';
+
+                        $query->$exists(function($query){
+                            $query
+                                ->select('immobile_id')
+                                ->from('contracts')
+                                ->whereColumn('immobile_id', '=', 'immobiles.id');
+                        });
                     }
+                })
+                ->when($request->search(), function($query) use($request, $search_fields){
+                    $query->where(function($query) use($request, $search_fields){
+                        $words = $request->search();
+                        foreach ($search_fields as $field){
+                            foreach ($words as $word){
+                                $query->orWhere($field, 'like', $word);
+                            }
+                        }
+                    });
+
+                    Log::info('Log query', [$query->toSql()]);
                 })
                 ->paginate(
                     $request->input('per_page', config('pagination.per_page')),
