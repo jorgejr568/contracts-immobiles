@@ -85924,7 +85924,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuetify__WEBPACK_IMPORTED_MODULE_
         secondary: vuetify_lib_util_colors__WEBPACK_IMPORTED_MODULE_3__["default"].orange.lighten2,
         accent: vuetify_lib_util_colors__WEBPACK_IMPORTED_MODULE_3__["default"].indigo.darken2,
         error: vuetify_lib_util_colors__WEBPACK_IMPORTED_MODULE_3__["default"].red.darken3,
-        success: vuetify_lib_util_colors__WEBPACK_IMPORTED_MODULE_3__["default"].green.darken1
+        success: vuetify_lib_util_colors__WEBPACK_IMPORTED_MODULE_3__["default"].deepPurple.lighten1 //colors.green.darken1,
+
       }
     }
   }

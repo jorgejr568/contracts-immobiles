@@ -13,7 +13,7 @@ export default new Vuetify({
                 secondary: colors.orange.lighten2,
                 accent: colors.indigo.darken2,
                 error: colors.red.darken3,
-                success: colors.green.darken1,
+                success: colors.deepPurple.lighten1, //colors.green.darken1,
             },
         },
     },
