@@ -1932,6 +1932,103 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/atoms/ImmobileStatusBadge.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/atoms/ImmobileStatusBadge.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'AtomsImmobileStatusBadge',
+  props: {
+    immobile: {
+      type: Object,
+      required: true
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/atoms/ImmobileStatusButton.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/atoms/ImmobileStatusButton.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'AtomsImmobileStatusButton',
+  props: {
+    immobile: {
+      type: Object,
+      required: true
+    },
+    on: {}
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/atoms/InitialsAvatar.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/atoms/InitialsAvatar.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'AtomsInitialsAvatar',
+  props: {
+    name: {
+      type: String,
+      required: true
+    },
+    color: {
+      type: String,
+      required: false,
+      "default": 'primary'
+    }
+  },
+  computed: {
+    user_initials: function user_initials() {
+      var name = this.name;
+      if (!name) return '';
+      var singleNames = name.split(' ');
+      return singleNames.map(function (singleName) {
+        return singleName.charAt(0).toUpperCase();
+      }).slice(0, 2).join('');
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/atoms/PageTitle.vue?vue&type=script&lang=js&":
 /*!**************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/atoms/PageTitle.vue?vue&type=script&lang=js& ***!
@@ -2099,6 +2196,118 @@ __webpack_require__.r(__webpack_exports__);
  *   this.$root.$confirm = this.$refs.confirm.open
  * }
  */
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/molecules/ImmobileStatusBadge.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/molecules/ImmobileStatusBadge.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _atoms_ImmobileStatusBadge__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../atoms/ImmobileStatusBadge */ "./resources/js/components/atoms/ImmobileStatusBadge.vue");
+/* harmony import */ var _atoms_ImmobileStatusButton__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../atoms/ImmobileStatusButton */ "./resources/js/components/atoms/ImmobileStatusButton.vue");
+/* harmony import */ var _atoms_InitialsAvatar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../atoms/InitialsAvatar */ "./resources/js/components/atoms/InitialsAvatar.vue");
+/* harmony import */ var _utils_filters_document__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/filters/document */ "./resources/js/utils/filters/document.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'MoleculesImmobileStatusBadge',
+  components: {
+    AtomsInitialsAvatar: _atoms_InitialsAvatar__WEBPACK_IMPORTED_MODULE_2__["default"],
+    AtomsImmobileStatusButton: _atoms_ImmobileStatusButton__WEBPACK_IMPORTED_MODULE_1__["default"],
+    AtomsImmobileStatusBadge: _atoms_ImmobileStatusBadge__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      menu: false
+    };
+  },
+  props: {
+    immobile: {
+      type: Object,
+      required: true
+    }
+  },
+  computed: {
+    contract: function contract() {
+      var contract = this.immobile.contract;
+      return contract;
+    }
+  },
+  methods: {
+    document_format: function document_format(value) {
+      return Object(_utils_filters_document__WEBPACK_IMPORTED_MODULE_3__["DocumentFilter"])(this.contract.document_type)(value);
+    }
+  }
+});
 
 /***/ }),
 
@@ -2815,6 +3024,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _ImmobileDeleteButton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ImmobileDeleteButton */ "./resources/js/components/organisms/ImmobileDeleteButton.vue");
 /* harmony import */ var _utils_filters_contract_address_line__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/filters/contract-address-line */ "./resources/js/utils/filters/contract-address-line.js");
+/* harmony import */ var _molecules_ImmobileStatusBadge__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../molecules/ImmobileStatusBadge */ "./resources/js/components/molecules/ImmobileStatusBadge.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -2855,15 +3065,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
+
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'OrganismsImmobilesTable',
   components: {
+    MoleculesImmobileStatusBadge: _molecules_ImmobileStatusBadge__WEBPACK_IMPORTED_MODULE_4__["default"],
     OrganismsImmobileDeleteButton: _ImmobileDeleteButton__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   filters: {
@@ -3019,6 +3228,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _utils_consumer_api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/consumer/api */ "./resources/js/utils/consumer/api.js");
+/* harmony import */ var _atoms_InitialsAvatar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../atoms/InitialsAvatar */ "./resources/js/components/atoms/InitialsAvatar.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -3091,16 +3301,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'OrganismsNavbar',
+  components: {
+    AtomsInitialsAvatar: _atoms_InitialsAvatar__WEBPACK_IMPORTED_MODULE_3__["default"]
+  },
   props: {
     breakpoint: {
       required: true
@@ -3111,18 +3319,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       loading: false
     };
   },
-  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
     user: 'user/getUser'
-  })), {}, {
-    userInitials: function userInitials() {
-      var name = this.user.name;
-      if (!name) return '';
-      var singleNames = name.split(' ');
-      return singleNames.map(function (singleName) {
-        return singleName.charAt(0).toUpperCase();
-      }).slice(0, 2).join('');
-    }
-  }),
+  })),
   methods: {
     logout: function logout() {
       var _this = this;
@@ -22716,6 +22915,96 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/atoms/ImmobileStatusBadge.vue?vue&type=template&id=7671d103&scoped=true&":
+/*!****************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/atoms/ImmobileStatusBadge.vue?vue&type=template&id=7671d103&scoped=true& ***!
+  \****************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-chip",
+    { attrs: { label: "", color: _vm.immobile.status.color, "x-small": "" } },
+    [_vm._v("\n    " + _vm._s(_vm.immobile.status.text) + "\n")]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/atoms/ImmobileStatusButton.vue?vue&type=template&id=2f5a6d82&scoped=true&":
+/*!*****************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/atoms/ImmobileStatusButton.vue?vue&type=template&id=2f5a6d82&scoped=true& ***!
+  \*****************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-btn",
+    _vm._g(
+      { attrs: { color: _vm.immobile.status.color, "x-small": "" } },
+      _vm.on
+    ),
+    [_vm._v("\n    " + _vm._s(_vm.immobile.status.text) + "\n")]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/atoms/InitialsAvatar.vue?vue&type=template&id=0bf11ac0&scoped=true&":
+/*!***********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/atoms/InitialsAvatar.vue?vue&type=template&id=0bf11ac0&scoped=true& ***!
+  \***********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-avatar",
+    {
+      staticClass: "font-weight-bold",
+      attrs: { color: _vm.color, size: "44" }
+    },
+    [_vm._v("\n    " + _vm._s(_vm.user_initials) + "\n")]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/atoms/PageTitle.vue?vue&type=template&id=1a4c5a3e&":
 /*!******************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/atoms/PageTitle.vue?vue&type=template&id=1a4c5a3e& ***!
@@ -22924,6 +23213,185 @@ var render = function() {
     ],
     1
   )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/molecules/ImmobileStatusBadge.vue?vue&type=template&id=c5d1b224&scoped=true&":
+/*!********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/molecules/ImmobileStatusBadge.vue?vue&type=template&id=c5d1b224&scoped=true& ***!
+  \********************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm.immobile.contract
+    ? _c(
+        "div",
+        [
+          _c(
+            "v-menu",
+            {
+              attrs: {
+                "close-on-content-click": false,
+                "nudge-width": 200,
+                "offset-x": "",
+                left: ""
+              },
+              scopedSlots: _vm._u(
+                [
+                  {
+                    key: "activator",
+                    fn: function(ref) {
+                      var on = ref.on
+                      var attrs = ref.attrs
+                      return [
+                        _c("atoms-immobile-status-button", {
+                          attrs: { immobile: _vm.immobile, on: on }
+                        })
+                      ]
+                    }
+                  }
+                ],
+                null,
+                false,
+                3658470747
+              ),
+              model: {
+                value: _vm.menu,
+                callback: function($$v) {
+                  _vm.menu = $$v
+                },
+                expression: "menu"
+              }
+            },
+            [
+              _vm._v(" "),
+              _c(
+                "v-card",
+                [
+                  _c(
+                    "v-list",
+                    [
+                      _c(
+                        "v-list-item",
+                        [
+                          _c(
+                            "v-list-item-avatar",
+                            [
+                              _c("atoms-initials-avatar", {
+                                staticClass: "white--text",
+                                attrs: {
+                                  name: _vm.contract.receiver_name,
+                                  color: "grey darken-1"
+                                }
+                              })
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-list-item-content",
+                            [
+                              _c("v-list-item-title", [
+                                _vm._v(
+                                  "\n                            " +
+                                    _vm._s(_vm.contract.receiver_name) +
+                                    "\n                        "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("v-list-item-subtitle", [
+                                _vm._v(
+                                  "\n                            " +
+                                    _vm._s(_vm.contract.receiver_email) +
+                                    "\n                        "
+                                )
+                              ])
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("v-divider"),
+                  _vm._v(" "),
+                  _c(
+                    "v-list",
+                    [
+                      _c(
+                        "v-list-item",
+                        [
+                          _c("v-list-item-title", [
+                            _vm._v(
+                              "\n                        Document type:\n                        "
+                            ),
+                            _c("strong", [
+                              _vm._v(_vm._s(_vm.contract.document_type) + " ")
+                            ])
+                          ])
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-list-item",
+                        [
+                          _c("v-list-item-title", [
+                            _vm._v(
+                              "\n                        Document number:\n                        "
+                            ),
+                            _c("strong", [
+                              _vm._v(
+                                "\n                            " +
+                                  _vm._s(
+                                    _vm.document_format(
+                                      _vm.contract.document_number
+                                    )
+                                  ) +
+                                  "\n                        "
+                              )
+                            ])
+                          ])
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    : _c(
+        "div",
+        [
+          _c("atoms-immobile-status-badge", {
+            attrs: { immobile: _vm.immobile }
+          })
+        ],
+        1
+      )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -23622,21 +24090,9 @@ var render = function() {
         fn: function(ref) {
           var property = ref.item
           return [
-            _c(
-              "v-chip",
-              {
-                attrs: {
-                  label: "",
-                  color: property.status.color,
-                  "x-small": ""
-                }
-              },
-              [
-                _vm._v(
-                  "\n            " + _vm._s(property.status.text) + "\n        "
-                )
-              ]
-            )
+            _c("molecules-immobile-status-badge", {
+              attrs: { immobile: property }
+            })
           ]
         }
       },
@@ -23728,20 +24184,10 @@ var render = function() {
             "v-list-item",
             { staticClass: "px-2 d-flex justify-center" },
             [
-              _c(
-                "v-list-item-avatar",
-                {
-                  staticClass: "white--text font-weight-bold",
-                  attrs: { color: "primary", size: "44" }
-                },
-                [
-                  _vm._v(
-                    "\n                " +
-                      _vm._s(_vm.userInitials) +
-                      "\n            "
-                  )
-                ]
-              )
+              _c("atoms-initials-avatar", {
+                staticClass: "white--text",
+                attrs: { name: _vm.user.name }
+              })
             ],
             1
           ),
@@ -84976,6 +85422,213 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/js/components/atoms/ImmobileStatusBadge.vue":
+/*!***************************************************************!*\
+  !*** ./resources/js/components/atoms/ImmobileStatusBadge.vue ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ImmobileStatusBadge_vue_vue_type_template_id_7671d103_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ImmobileStatusBadge.vue?vue&type=template&id=7671d103&scoped=true& */ "./resources/js/components/atoms/ImmobileStatusBadge.vue?vue&type=template&id=7671d103&scoped=true&");
+/* harmony import */ var _ImmobileStatusBadge_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ImmobileStatusBadge.vue?vue&type=script&lang=js& */ "./resources/js/components/atoms/ImmobileStatusBadge.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ImmobileStatusBadge_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ImmobileStatusBadge_vue_vue_type_template_id_7671d103_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ImmobileStatusBadge_vue_vue_type_template_id_7671d103_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "7671d103",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/atoms/ImmobileStatusBadge.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/atoms/ImmobileStatusBadge.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/components/atoms/ImmobileStatusBadge.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ImmobileStatusBadge_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ImmobileStatusBadge.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/atoms/ImmobileStatusBadge.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ImmobileStatusBadge_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/atoms/ImmobileStatusBadge.vue?vue&type=template&id=7671d103&scoped=true&":
+/*!**********************************************************************************************************!*\
+  !*** ./resources/js/components/atoms/ImmobileStatusBadge.vue?vue&type=template&id=7671d103&scoped=true& ***!
+  \**********************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ImmobileStatusBadge_vue_vue_type_template_id_7671d103_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./ImmobileStatusBadge.vue?vue&type=template&id=7671d103&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/atoms/ImmobileStatusBadge.vue?vue&type=template&id=7671d103&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ImmobileStatusBadge_vue_vue_type_template_id_7671d103_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ImmobileStatusBadge_vue_vue_type_template_id_7671d103_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/atoms/ImmobileStatusButton.vue":
+/*!****************************************************************!*\
+  !*** ./resources/js/components/atoms/ImmobileStatusButton.vue ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ImmobileStatusButton_vue_vue_type_template_id_2f5a6d82_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ImmobileStatusButton.vue?vue&type=template&id=2f5a6d82&scoped=true& */ "./resources/js/components/atoms/ImmobileStatusButton.vue?vue&type=template&id=2f5a6d82&scoped=true&");
+/* harmony import */ var _ImmobileStatusButton_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ImmobileStatusButton.vue?vue&type=script&lang=js& */ "./resources/js/components/atoms/ImmobileStatusButton.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ImmobileStatusButton_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ImmobileStatusButton_vue_vue_type_template_id_2f5a6d82_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ImmobileStatusButton_vue_vue_type_template_id_2f5a6d82_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "2f5a6d82",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/atoms/ImmobileStatusButton.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/atoms/ImmobileStatusButton.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/atoms/ImmobileStatusButton.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ImmobileStatusButton_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ImmobileStatusButton.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/atoms/ImmobileStatusButton.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ImmobileStatusButton_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/atoms/ImmobileStatusButton.vue?vue&type=template&id=2f5a6d82&scoped=true&":
+/*!***********************************************************************************************************!*\
+  !*** ./resources/js/components/atoms/ImmobileStatusButton.vue?vue&type=template&id=2f5a6d82&scoped=true& ***!
+  \***********************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ImmobileStatusButton_vue_vue_type_template_id_2f5a6d82_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./ImmobileStatusButton.vue?vue&type=template&id=2f5a6d82&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/atoms/ImmobileStatusButton.vue?vue&type=template&id=2f5a6d82&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ImmobileStatusButton_vue_vue_type_template_id_2f5a6d82_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ImmobileStatusButton_vue_vue_type_template_id_2f5a6d82_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/atoms/InitialsAvatar.vue":
+/*!**********************************************************!*\
+  !*** ./resources/js/components/atoms/InitialsAvatar.vue ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _InitialsAvatar_vue_vue_type_template_id_0bf11ac0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./InitialsAvatar.vue?vue&type=template&id=0bf11ac0&scoped=true& */ "./resources/js/components/atoms/InitialsAvatar.vue?vue&type=template&id=0bf11ac0&scoped=true&");
+/* harmony import */ var _InitialsAvatar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./InitialsAvatar.vue?vue&type=script&lang=js& */ "./resources/js/components/atoms/InitialsAvatar.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _InitialsAvatar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _InitialsAvatar_vue_vue_type_template_id_0bf11ac0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _InitialsAvatar_vue_vue_type_template_id_0bf11ac0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "0bf11ac0",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/atoms/InitialsAvatar.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/atoms/InitialsAvatar.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/atoms/InitialsAvatar.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_InitialsAvatar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./InitialsAvatar.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/atoms/InitialsAvatar.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_InitialsAvatar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/atoms/InitialsAvatar.vue?vue&type=template&id=0bf11ac0&scoped=true&":
+/*!*****************************************************************************************************!*\
+  !*** ./resources/js/components/atoms/InitialsAvatar.vue?vue&type=template&id=0bf11ac0&scoped=true& ***!
+  \*****************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_InitialsAvatar_vue_vue_type_template_id_0bf11ac0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./InitialsAvatar.vue?vue&type=template&id=0bf11ac0&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/atoms/InitialsAvatar.vue?vue&type=template&id=0bf11ac0&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_InitialsAvatar_vue_vue_type_template_id_0bf11ac0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_InitialsAvatar_vue_vue_type_template_id_0bf11ac0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/atoms/PageTitle.vue":
 /*!*****************************************************!*\
   !*** ./resources/js/components/atoms/PageTitle.vue ***!
@@ -85178,6 +85831,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ConfirmationDialog_vue_vue_type_template_id_de611a2c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ConfirmationDialog_vue_vue_type_template_id_de611a2c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/molecules/ImmobileStatusBadge.vue":
+/*!*******************************************************************!*\
+  !*** ./resources/js/components/molecules/ImmobileStatusBadge.vue ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ImmobileStatusBadge_vue_vue_type_template_id_c5d1b224_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ImmobileStatusBadge.vue?vue&type=template&id=c5d1b224&scoped=true& */ "./resources/js/components/molecules/ImmobileStatusBadge.vue?vue&type=template&id=c5d1b224&scoped=true&");
+/* harmony import */ var _ImmobileStatusBadge_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ImmobileStatusBadge.vue?vue&type=script&lang=js& */ "./resources/js/components/molecules/ImmobileStatusBadge.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ImmobileStatusBadge_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ImmobileStatusBadge_vue_vue_type_template_id_c5d1b224_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ImmobileStatusBadge_vue_vue_type_template_id_c5d1b224_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "c5d1b224",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/molecules/ImmobileStatusBadge.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/molecules/ImmobileStatusBadge.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/components/molecules/ImmobileStatusBadge.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ImmobileStatusBadge_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ImmobileStatusBadge.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/molecules/ImmobileStatusBadge.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ImmobileStatusBadge_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/molecules/ImmobileStatusBadge.vue?vue&type=template&id=c5d1b224&scoped=true&":
+/*!**************************************************************************************************************!*\
+  !*** ./resources/js/components/molecules/ImmobileStatusBadge.vue?vue&type=template&id=c5d1b224&scoped=true& ***!
+  \**************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ImmobileStatusBadge_vue_vue_type_template_id_c5d1b224_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./ImmobileStatusBadge.vue?vue&type=template&id=c5d1b224&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/molecules/ImmobileStatusBadge.vue?vue&type=template&id=c5d1b224&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ImmobileStatusBadge_vue_vue_type_template_id_c5d1b224_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ImmobileStatusBadge_vue_vue_type_template_id_c5d1b224_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -86570,6 +87292,34 @@ var ContractAddressLineFilter = function ContractAddressLineFilter(property) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (ContractAddressLineFilter);
+
+/***/ }),
+
+/***/ "./resources/js/utils/filters/document.js":
+/*!************************************************!*\
+  !*** ./resources/js/utils/filters/document.js ***!
+  \************************************************/
+/*! exports provided: CPFFilter, CNPJFilter, DocumentFilter */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CPFFilter", function() { return CPFFilter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CNPJFilter", function() { return CNPJFilter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DocumentFilter", function() { return DocumentFilter; });
+/* harmony import */ var cpf_cnpj_validator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! cpf-cnpj-validator */ "./node_modules/cpf-cnpj-validator/dist/cpf-cnpj-validator.es.js");
+/* harmony import */ var _const_contracts_document_type__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../const/contracts-document-type */ "./resources/js/utils/const/contracts-document-type.js");
+
+
+var CPFFilter = function CPFFilter(value) {
+  return cpf_cnpj_validator__WEBPACK_IMPORTED_MODULE_0__["cpf"].format(value);
+};
+var CNPJFilter = function CNPJFilter(value) {
+  return cpf_cnpj_validator__WEBPACK_IMPORTED_MODULE_0__["cnpj"].format(value);
+};
+var DocumentFilter = function DocumentFilter(type) {
+  return type === _const_contracts_document_type__WEBPACK_IMPORTED_MODULE_1__["CONTRACT_DOCUMENT_TYPE_ENTITY"] ? CNPJFilter : CPFFilter;
+};
 
 /***/ }),
 

@@ -7,13 +7,7 @@
     >
         <v-list>
             <v-list-item class="px-2 d-flex justify-center">
-                <v-list-item-avatar
-                    color="primary"
-                    class="white--text font-weight-bold"
-                    size="44"
-                >
-                    {{ userInitials }}
-                </v-list-item-avatar>
+                <atoms-initials-avatar :name="user.name" class="white--text" />
             </v-list-item>
 
             <v-list-item inactive>
@@ -67,9 +61,11 @@
 <script>
     import { mapGetters } from 'vuex'
     import { ApiClient } from '../../utils/consumer/api'
+    import AtomsInitialsAvatar from '../atoms/InitialsAvatar'
 
     export default {
         name: 'OrganismsNavbar',
+        components: { AtomsInitialsAvatar },
         props: {
             breakpoint: {
                 required: true,
@@ -84,16 +80,6 @@
             ...mapGetters({
                 user: 'user/getUser',
             }),
-            userInitials() {
-                const { name } = this.user
-                if (!name) return ''
-
-                const singleNames = name.split(' ')
-                return singleNames
-                    .map((singleName) => singleName.charAt(0).toUpperCase())
-                    .slice(0, 2)
-                    .join('')
-            },
         },
         methods: {
             logout() {

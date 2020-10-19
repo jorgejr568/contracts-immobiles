@@ -18,11 +18,8 @@
         </template>
 
         <template v-slot:item.status="{ item: property }">
-            <v-chip label :color="property.status.color" x-small>
-                {{ property.status.text }}
-            </v-chip>
+            <molecules-immobile-status-badge :immobile="property" />
         </template>
-
         <template v-slot:item.actions="{ item: property }">
             <organisms-immobile-delete-button :immobile="property" />
         </template>
@@ -33,9 +30,13 @@
     import { mapGetters } from 'vuex'
     import OrganismsImmobileDeleteButton from './ImmobileDeleteButton'
     import ContractAddressLineFilter from '../../utils/filters/contract-address-line'
+    import MoleculesImmobileStatusBadge from '../molecules/ImmobileStatusBadge'
     export default {
         name: 'OrganismsImmobilesTable',
-        components: { OrganismsImmobileDeleteButton },
+        components: {
+            MoleculesImmobileStatusBadge,
+            OrganismsImmobileDeleteButton,
+        },
         filters: {
             address_line: (property) => ContractAddressLineFilter(property),
         },
