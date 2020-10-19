@@ -223,7 +223,6 @@
                     })
                     .then((response) => {
                         this.immobiles = ApiResourceParser(response)
-                        console.log(this.immobiles)
                     })
                     .catch(console.log)
                     .finally(() => (this.loadingImmobile = false))
