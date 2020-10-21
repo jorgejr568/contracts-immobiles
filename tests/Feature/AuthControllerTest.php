@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Http\Resources\UserResource;
 use Database\Factories\UserFactory;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -69,7 +70,7 @@ class AuthControllerTest extends TestCase
             'Authorization' => "$token_type $jwt",
         ]);
 
-        $response->assertJson(['data' => $user->toArray()]);
+        $response->assertJson(['data' => (new UserResource($user))->toArray(request())]);
     }
 
     /**
