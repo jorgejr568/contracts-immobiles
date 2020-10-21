@@ -18,45 +18,54 @@ class ImmobileController extends Controller
      */
     public function index(PaginationRequest $request)
     {
-        $search_fields = [
-            'state',
-            'city',
-            'street',
-            'number'
-        ];
+        $search_fields = ['state', 'city', 'street', 'number'];
         $sort = $request->input('sort', []);
         $status = $request->input('status');
 
         return ImmobileResource::collection(
-            Immobile
-                ::when(count($sort) > 0, function ($query) use ($sort) {
-                    foreach ($sort as $rule) {
-                        $rule = is_string($rule) ? json_decode($rule, true): $rule;
-                        if(!is_array($rule)) continue;
-
-                        $query->orderBy(
-                            $rule['column'],
-                            $rule['desc'] ? 'DESC' : 'ASC',
-                        );
+            Immobile::when(count($sort) > 0, function ($query) use ($sort) {
+                foreach ($sort as $rule) {
+                    $rule = is_string($rule) ? json_decode($rule, true) : $rule;
+                    if (!is_array($rule)) {
+                        continue;
                     }
-                })
-                ->when($status, function($query) use($status){
-                    if(in_array($status, ['contracted', 'non-contracted'])){
-                        $exists = $status === 'contracted' ? 'whereExists' : 'whereNotExists';
 
-                        $query->$exists(function($query){
+                    $query->orderBy(
+                        $rule['column'],
+                        $rule['desc'] ? 'DESC' : 'ASC',
+                    );
+                }
+            })
+                ->when($status, function ($query) use ($status) {
+                    if (in_array($status, ['contracted', 'non-contracted'])) {
+                        $exists =
+                            $status === 'contracted'
+                                ? 'whereExists'
+                                : 'whereNotExists';
+
+                        $query->$exists(function ($query) {
                             $query
                                 ->select('immobile_id')
                                 ->from('contracts')
-                                ->whereColumn('immobile_id', '=', 'immobiles.id');
+                                ->whereColumn(
+                                    'immobile_id',
+                                    '=',
+                                    'immobiles.id',
+                                );
                         });
                     }
                 })
-                ->when($request->search(), function($query) use($request, $search_fields){
-                    $query->where(function($query) use($request, $search_fields){
+                ->when($request->search(), function ($query) use (
+                    $request,
+                    $search_fields
+                ) {
+                    $query->where(function ($query) use (
+                        $request,
+                        $search_fields
+                    ) {
                         $words = $request->search();
-                        foreach ($search_fields as $field){
-                            foreach ($words as $word){
+                        foreach ($search_fields as $field) {
+                            foreach ($words as $word) {
                                 $query->orWhere($field, 'like', $word);
                             }
                         }

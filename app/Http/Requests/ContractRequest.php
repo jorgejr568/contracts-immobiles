@@ -46,7 +46,7 @@ class ContractRequest extends FormRequest
                 'required',
                 'string',
                 'size:' . $documentSize,
-                'cpf_cnpj'
+                'cpf_cnpj',
             ],
         ];
     }

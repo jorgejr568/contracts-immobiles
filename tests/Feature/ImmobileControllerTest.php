@@ -28,10 +28,13 @@ class ImmobileControllerTest extends TestCase
         return "$token_type $jwt";
     }
 
-    private function mockImmobiles($qtd = 5, $generateContracted = false){
+    private function mockImmobiles($qtd = 5, $generateContracted = false)
+    {
         ImmobileFactory::times($qtd)->create();
-        if($generateContracted){
-            ContractFactory::times($qtd)->with_immobile()->create();
+        if ($generateContracted) {
+            ContractFactory::times($qtd)
+                ->with_immobile()
+                ->create();
         }
 
         return Immobile::all();
@@ -55,63 +58,89 @@ class ImmobileControllerTest extends TestCase
             'Authorization' => $this->generateAuthorization(),
         ]);
         $response->assertStatus(200);
-        $response->assertJson(["data" => ImmobileResource::collection($immobiles)->toArray(request())]);
+        $response->assertJson([
+            'data' => ImmobileResource::collection($immobiles)->toArray(
+                request(),
+            ),
+        ]);
     }
 
     public function testIndexWithSearch()
     {
-
         $immobiles = $this->mockImmobiles(1);
         $immobileSearch = $immobiles[0];
-        $response = $this->get('/api/immobile?'.http_build_query([
-                'search' => "{$immobileSearch->street} {$immobileSearch->city} {$immobileSearch->state}"
-            ])
-            , [
-            'Authorization' => $this->generateAuthorization(),
-        ]);
+        $response = $this->get(
+            '/api/immobile?' .
+                http_build_query([
+                    'search' => "{$immobileSearch->street} {$immobileSearch->city} {$immobileSearch->state}",
+                ]),
+            [
+                'Authorization' => $this->generateAuthorization(),
+            ],
+        );
         $response->assertStatus(200);
-        $response->assertJson(["data" => ImmobileResource::collection([$immobileSearch])->toArray(request())]);
+        $response->assertJson([
+            'data' => ImmobileResource::collection([$immobileSearch])->toArray(
+                request(),
+            ),
+        ]);
     }
 
     public function testIndexWithStatus()
     {
         $immobiles = $this->mockImmobiles(5, true);
-        foreach(['non-contracted' => '==', 'contracted' => '!='] as $status => $sign){
+        foreach (
+            ['non-contracted' => '==', 'contracted' => '!=']
+            as $status => $sign
+        ) {
             $filtered = $immobiles->where('contract', $sign, null)->values();
-            $response = $this->get('/api/immobile?'.http_build_query([
-                    'status' => $status
-                ])
-                , [
+            $response = $this->get(
+                '/api/immobile?' .
+                    http_build_query([
+                        'status' => $status,
+                    ]),
+                [
                     'Authorization' => $this->generateAuthorization(),
-                ]);
+                ],
+            );
             $response->assertStatus(200);
-            $response->assertJson(["data" => ImmobileResource::collection($filtered)->toArray(request())]);
+            $response->assertJson([
+                'data' => ImmobileResource::collection($filtered)->toArray(
+                    request(),
+                ),
+            ]);
         }
-
     }
 
     public function testIndexWithSort()
     {
         $immobiles = $this->mockImmobiles(5);
         $attributes = array_keys($immobiles[0]->getAttributes());
-        foreach ($attributes as $attribute){
+        foreach ($attributes as $attribute) {
             foreach (['ASC', 'DESC'] as $direction) {
                 $isDesc = $direction == 'DESC';
                 $sorted = Immobile::orderBy($attribute, $direction)->get();
 
-                $response = $this->get('/api/immobile?' . http_build_query([
-                        'sort' => [
-                            [
-                                'column' => $attribute,
-                                'desc' => $isDesc
-                            ]
-                        ]
-                    ])
-                    , [
+                $response = $this->get(
+                    '/api/immobile?' .
+                        http_build_query([
+                            'sort' => [
+                                [
+                                    'column' => $attribute,
+                                    'desc' => $isDesc,
+                                ],
+                            ],
+                        ]),
+                    [
                         'Authorization' => $this->generateAuthorization(),
-                    ]);
+                    ],
+                );
                 $response->assertStatus(200);
-                $response->assertJson(["data" => ImmobileResource::collection($sorted)->toArray(request())]);
+                $response->assertJson([
+                    'data' => ImmobileResource::collection($sorted)->toArray(
+                        request(),
+                    ),
+                ]);
             }
         }
     }
@@ -120,69 +149,92 @@ class ImmobileControllerTest extends TestCase
      * STORE TESTS
      */
 
-    public function testStoreUnauthorized(){
-        $immobileData = ImmobileFactory::new()->make()->toArray();
-        $response = $this->post('/api/immobile',$immobileData, [
+    public function testStoreUnauthorized()
+    {
+        $immobileData = ImmobileFactory::new()
+            ->make()
+            ->toArray();
+        $response = $this->post('/api/immobile', $immobileData, [
             'Authorization' => 'invalid_jwt',
         ]);
 
         $response->assertStatus(401);
     }
 
-    public function testStoreWithMissingData(){
+    public function testStoreWithMissingData()
+    {
         $request = new ImmobileRequest();
         $rules = collect($request->rules())
-            ->filter(function($rule){
+            ->filter(function ($rule) {
                 return in_array('required', $rule);
-            })->keys();
+            })
+            ->keys();
 
-        foreach($rules as $rule){
-            $immobileData = ImmobileFactory::new()->make()->toArray();
+        foreach ($rules as $rule) {
+            $immobileData = ImmobileFactory::new()
+                ->make()
+                ->toArray();
             unset($immobileData[$rule]);
-            $response = $this->post('/api/immobile',$immobileData, [
-                    'Authorization' => $this->generateAuthorization(),
-                ]);
-
-            $response->assertStatus(422);
-
-        }
-    }
-
-    public function testStoreWithInvalidEmail(){
-        $immobileData = ImmobileFactory::new(['email' => 'invalid_email'])->make()->toArray();
-        $response = $this->post('/api/immobile',$immobileData, [
+            $response = $this->post('/api/immobile', $immobileData, [
                 'Authorization' => $this->generateAuthorization(),
             ]);
 
-        $response->assertStatus(422);
-
+            $response->assertStatus(422);
+        }
     }
 
-    public function testStore(){
-        $immobileData = ImmobileFactory::new()->make()->toArray();
-        $response = $this->post('/api/immobile',$immobileData, [
+    public function testStoreWithInvalidEmail()
+    {
+        $immobileData = ImmobileFactory::new(['email' => 'invalid_email'])
+            ->make()
+            ->toArray();
+        $response = $this->post('/api/immobile', $immobileData, [
+            'Authorization' => $this->generateAuthorization(),
+        ]);
+
+        $response->assertStatus(422);
+    }
+
+    public function testStore()
+    {
+        $immobileData = ImmobileFactory::new()
+            ->make()
+            ->toArray();
+        $response = $this->post('/api/immobile', $immobileData, [
             'Authorization' => $this->generateAuthorization(),
         ]);
         $this->assertDatabaseCount('immobiles', 1);
         $immobile = Immobile::first();
 
         $response->assertStatus(201);
-        $response->assertJson(['data' => (new ImmobileResource($immobile))->toArray(request())]);
+        $response->assertJson([
+            'data' => (new ImmobileResource($immobile))->toArray(request()),
+        ]);
     }
 
-    public function testDestroyUnauthorized(){
+    public function testDestroyUnauthorized()
+    {
         $immobile = ImmobileFactory::new()->create();
-        $response = $this->delete('/api/immobile/'.$immobile->uuid,[], [
-            'Authorization' => 'invalid_jwt',
-        ]);
+        $response = $this->delete(
+            '/api/immobile/' . $immobile->uuid,
+            [],
+            [
+                'Authorization' => 'invalid_jwt',
+            ],
+        );
         $response->assertStatus(401);
     }
 
-    public function testDestroy(){
+    public function testDestroy()
+    {
         $immobile = ImmobileFactory::new()->create();
-        $response = $this->delete('/api/immobile/'.$immobile->uuid,[], [
-            'Authorization' => $this->generateAuthorization(),
-        ]);
+        $response = $this->delete(
+            '/api/immobile/' . $immobile->uuid,
+            [],
+            [
+                'Authorization' => $this->generateAuthorization(),
+            ],
+        );
         $this->assertDatabaseCount('immobiles', 1);
         $immobile = Immobile::onlyTrashed()->first();
         $this->assertNotNull($immobile->deleted_at);

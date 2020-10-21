@@ -14,7 +14,13 @@ class AddAddressIndexOnImmobilesTable extends Migration
     public function up()
     {
         Schema::table('immobiles', function (Blueprint $table) {
-            $table->index(['state', 'city', 'neighborhood', 'street', 'number']);
+            $table->index([
+                'state',
+                'city',
+                'neighborhood',
+                'street',
+                'number',
+            ]);
         });
     }
 
@@ -26,7 +32,13 @@ class AddAddressIndexOnImmobilesTable extends Migration
     public function down()
     {
         Schema::table('immobiles', function (Blueprint $table) {
-            $table->dropIndex(['state', 'city', 'neighborhood', 'street', 'number']);
+            $table->dropIndex([
+                'state',
+                'city',
+                'neighborhood',
+                'street',
+                'number',
+            ]);
         });
     }
 }
