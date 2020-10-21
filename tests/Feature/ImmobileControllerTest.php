@@ -171,7 +171,8 @@ class ImmobileControllerTest extends TestCase
     }
 
     public function testDestroyUnauthorized(){
-        $response = $this->delete('/api/immobile',[], [
+        $immobile = ImmobileFactory::new()->create();
+        $response = $this->delete('/api/immobile/'.$immobile->uuid,[], [
             'Authorization' => 'invalid_jwt',
         ]);
         $response->assertStatus(401);
