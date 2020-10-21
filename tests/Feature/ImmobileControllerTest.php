@@ -169,4 +169,22 @@ class ImmobileControllerTest extends TestCase
         $response->assertStatus(201);
         $response->assertJson(['data' => (new ImmobileResource($immobile))->toArray(request())]);
     }
+
+    public function testDestroyUnauthorized(){
+        $response = $this->delete('/api/immobile',[], [
+            'Authorization' => 'invalid_jwt',
+        ]);
+        $response->assertStatus(401);
+    }
+
+    public function testDestroy(){
+        $immobile = ImmobileFactory::new()->create();
+        $response = $this->delete('/api/immobile/'.$immobile->uuid,[], [
+            'Authorization' => $this->generateAuthorization(),
+        ]);
+        $this->assertDatabaseCount('immobiles', 1);
+        $immobile = Immobile::onlyTrashed()->first();
+        $this->assertNotNull($immobile->deleted_at);
+        $response->assertStatus(204);
+    }
 }
