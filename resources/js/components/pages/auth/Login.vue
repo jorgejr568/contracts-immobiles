@@ -121,6 +121,10 @@
                     .finally(() => (this.isLoading = false))
             },
         },
+        mounted() {
+            this.auth.email = 'admin@jorgejunior.dev'
+            this.auth.password = '123456'
+        },
     }
 </script>
 

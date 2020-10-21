@@ -14,13 +14,15 @@ class AddAddressIndexOnImmobilesTable extends Migration
     public function up()
     {
         Schema::table('immobiles', function (Blueprint $table) {
-            $table->index([
-                'state',
-                'city',
-                'neighborhood',
-                'street',
-                'number',
-            ]);
+            foreach ([
+                 'state',
+                 'city',
+                 'neighborhood',
+                 'street',
+                 'number',
+             ] as $field){
+                $table->index($field);
+            }
         });
     }
 
