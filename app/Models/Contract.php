@@ -24,4 +24,8 @@ class Contract extends Model
         'document_type',
         'document_number',
     ];
+
+    public function immobile(){
+        return $this->belongsTo(Immobile::class);
+    }
 }
