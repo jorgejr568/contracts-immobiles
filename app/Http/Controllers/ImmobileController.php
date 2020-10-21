@@ -31,7 +31,9 @@ class ImmobileController extends Controller
             Immobile
                 ::when(count($sort) > 0, function ($query) use ($sort) {
                     foreach ($sort as $rule) {
-                        $rule = json_decode($rule, true);
+                        $rule = is_string($rule) ? json_decode($rule, true): $rule;
+                        if(!is_array($rule)) continue;
+
                         $query->orderBy(
                             $rule['column'],
                             $rule['desc'] ? 'DESC' : 'ASC',
