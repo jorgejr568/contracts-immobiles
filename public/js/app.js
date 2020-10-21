@@ -2569,7 +2569,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   }
                 }).then(function (response) {
                   _this2.immobiles = Object(_utils_parsers_api_resource__WEBPACK_IMPORTED_MODULE_5__["ApiResourceParser"])(response);
-                  console.log(_this2.immobiles);
                 })["catch"](console.log)["finally"](function () {
                   return _this2.loadingImmobile = false;
                 });
@@ -87070,9 +87069,6 @@ var mutations = {
     state.token = token;
   },
   setUser: function setUser(state, user) {
-    if (!user.id) this.$router.push({
-      name: 'auth.login'
-    });
     state.user = user;
   }
 };
