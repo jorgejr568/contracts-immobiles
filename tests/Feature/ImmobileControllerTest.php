@@ -10,23 +10,11 @@ use Database\Factories\ImmobileFactory;
 use Database\Factories\UserFactory;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
+use Tests\Traits\GenerateJWT;
 
 class ImmobileControllerTest extends TestCase
 {
-    use RefreshDatabase;
-
-    private function generateAuthorization()
-    {
-        $user = UserFactory::new(['password' => bcrypt('password')])->create();
-        $response = $this->post('/api/auth', [
-            'email' => $user->email,
-            'password' => 'password',
-        ]);
-        $jwt = $response->json('access_token');
-        $token_type = $response->json('token_type');
-
-        return "$token_type $jwt";
-    }
+    use RefreshDatabase, GenerateJWT;
 
     private function mockImmobiles($qtd = 5, $generateContracted = false)
     {
