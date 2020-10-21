@@ -28,7 +28,7 @@ class ImmobileFactory extends Factory
             'city' => $this->faker->city,
             'neighborhood' => 'Springfield',
             'street' => $this->faker->streetName,
-            'number' => $this->faker->numberBetween(1, 100),
+            'number' => (string) $this->faker->numberBetween(1, 100),
             'complement' => $this->faker->text(30),
         ];
     }

@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Http\Requests\ImmobileRequest;
 use App\Http\Resources\ImmobileResource;
 use App\Models\Immobile;
 use Database\Factories\ContractFactory;
@@ -113,5 +114,59 @@ class ImmobileControllerTest extends TestCase
                 $response->assertJson(["data" => ImmobileResource::collection($sorted)->toArray(request())]);
             }
         }
+    }
+
+    /**
+     * STORE TESTS
+     */
+
+    public function testStoreUnauthorized(){
+        $immobileData = ImmobileFactory::new()->make()->toArray();
+        $response = $this->post('/api/immobile',$immobileData, [
+            'Authorization' => 'invalid_jwt',
+        ]);
+
+        $response->assertStatus(401);
+    }
+
+    public function testStoreWithMissingData(){
+        $request = new ImmobileRequest();
+        $rules = collect($request->rules())
+            ->filter(function($rule){
+                return in_array('required', $rule);
+            })->keys();
+
+        foreach($rules as $rule){
+            $immobileData = ImmobileFactory::new()->make()->toArray();
+            unset($immobileData[$rule]);
+            $response = $this->post('/api/immobile',$immobileData, [
+                    'Authorization' => $this->generateAuthorization(),
+                ]);
+
+            $response->assertStatus(422);
+
+        }
+    }
+
+    public function testStoreWithInvalidEmail(){
+        $immobileData = ImmobileFactory::new(['email' => 'invalid_email'])->make()->toArray();
+        $response = $this->post('/api/immobile',$immobileData, [
+                'Authorization' => $this->generateAuthorization(),
+            ]);
+
+        $response->assertStatus(422);
+
+    }
+
+    public function testStore(){
+        $immobileData = ImmobileFactory::new()->make()->toArray();
+        $response = $this->post('/api/immobile',$immobileData, [
+            'Authorization' => $this->generateAuthorization(),
+        ]);
+        $this->assertDatabaseCount('immobiles', 1);
+        $immobile = Immobile::first();
+
+        $response->assertStatus(201);
+        $response->assertJson(['data' => (new ImmobileResource($immobile))->toArray(request())]);
     }
 }

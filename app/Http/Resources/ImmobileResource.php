@@ -17,6 +17,7 @@ class ImmobileResource extends JsonResource
     {
         $array = parent::toArray($request);
         $array = Arr::except($array, 'deleted_at');
+        $array['contract'] = $array['contract'] ?? null;
         $array += ['status' => $this->statusContract($array['contract'])];
 
         return $array;
