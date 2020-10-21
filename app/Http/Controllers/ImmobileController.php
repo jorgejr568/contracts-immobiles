@@ -61,8 +61,6 @@ class ImmobileController extends Controller
                             }
                         }
                     });
-
-                    Log::info('Log query', [$query->toSql()]);
                 })
                 ->paginate(
                     $request->input('per_page', config('pagination.per_page')),
