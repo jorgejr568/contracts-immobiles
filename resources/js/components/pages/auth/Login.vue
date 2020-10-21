@@ -9,7 +9,7 @@
                     <v-card-title
                         class="primary white--text d-flex justify-center"
                     >
-                        HELLGATE
+                        {{ app_name.toUpperCase() }}
                     </v-card-title>
 
                     <v-card-text>
@@ -85,6 +85,9 @@
             }
         },
         computed: {
+            app_name() {
+                return process.env.MIX_APP_NAME
+            },
             forgotPasswordText() {
                 return '<span v-else>Forgot your password? <a href="#">Click here</a></span>'
             },
