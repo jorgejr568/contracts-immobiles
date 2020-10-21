@@ -1,7 +1,7 @@
 ### Sobre a Accordous
 #####  :rocket: Setup
 
-```shell script
+```bash
 docker-compose up -d
 docker exec -it test-app bash
 php artisan migrate --seed
