@@ -1,4 +1,13 @@
 ### Sobre a Accordous
+#####  :rocket: Setup
+
+```shell script
+docker-compose up -d
+docker exec -it test-app bash
+php artisan migrate --seed
+
+# You're all set
+``` 
 ##### Não perca mais tempo com seus contratos.
 Somos uma empresa de tecnologia voltada a simplificação de processos burocráticos! Desde a concepção até a cobrança de contratos, seja ele de imóveis, acordo, prestação de serviços, entre outros.
 
